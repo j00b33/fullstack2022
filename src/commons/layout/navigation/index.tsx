@@ -51,12 +51,18 @@ export default function LayoutNavigation() {
   const onClickTattooists = () => {
     router.push("/board/tattooistList");
   };
+
+  const onClickDesign = () => {
+    router.push("/board/tattooDesign");
+  };
+
   return (
     <Wrapper>
       <Menu>
         <ContentText onClick={onClickTattoo}>Tattoo</ContentText>
+        <ContentText onClick={onClickDesign}>Tattoo Design</ContentText>
         <ContentText onClick={onClickTattooists}>Tattooists</ContentText>
-        <ContentText onClick={onClickReview}>Review</ContentText>
+        <ContentText onClick={onClickReview}>Reviews</ContentText>
       </Menu>
 
       <HeaderDivision />

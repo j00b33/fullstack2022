@@ -7,7 +7,6 @@ export const FETCH_TATTOOS = gql`
     fetchTattoos {
       id
       name
-      image
       price
       tattooGenre {
         genre
@@ -42,7 +41,7 @@ export default function TattooListContainer() {
       <T.Body>
         {data?.fetchTattoos.map((el) => (
           <T.SingleBox key={el.id} id={el.id} onClick={onClickDetail}>
-            <T.Image src={el?.image ? el.image : "/empty.png"} />
+            <T.Image src="/empty.png" />
             <T.Text> {el.name} </T.Text>
             <T.Text> {el.price}₩ </T.Text>
             <T.Tags>

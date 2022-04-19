@@ -9,7 +9,7 @@ const FETCH_TATTOOIST_REVIEW = gql`
       reviewDetail
       reviewImage
       rating
-      user {
+      tattooist {
         id
         name
       }
@@ -24,6 +24,7 @@ export default function TattooistReviewListcontainer() {
   };
 
   const { data } = useQuery(FETCH_TATTOOIST_REVIEW);
+  console.log("👠 Review Data: ", data);
 
   return (
     <R.Wrapper>
@@ -32,7 +33,7 @@ export default function TattooistReviewListcontainer() {
         {data?.fetchTattooistReviews.map((el) => (
           <R.SingleBox key={el.id} id={el.id}>
             <R.Image src={el?.reviewImage ? el.reviewImage : "/empty.png"} />
-            <R.Text>Tattooist {el.user?.name} </R.Text>
+            <R.Text>Tattooist {el.tattooist?.name} </R.Text>
             <R.Text></R.Text>
             <R.Text>{el.rating} stars</R.Text>
           </R.SingleBox>

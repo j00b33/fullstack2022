@@ -50,6 +50,7 @@ export default function Layout(props: IProps) {
   ];
 
   const isHiddenNavigation = HIDDEN_NAVIGATION.includes(router.asPath);
+  const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
   return (
     <Wrapper>
       <LayoutHeader />
@@ -58,7 +59,7 @@ export default function Layout(props: IProps) {
       <BodyWrapper>
         <LayoutBody>{props.children}</LayoutBody>
       </BodyWrapper>
-      {!HIDDEN_FOOTER && <LayoutFooter />}
+      {!isHiddenFooter && <LayoutFooter />}
     </Wrapper>
   );
 }

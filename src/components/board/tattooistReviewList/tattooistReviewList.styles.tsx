@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 30px;
   font-family: Cochin;
+
+  margin-bottom: 50px;
 `;
 
 export const Body = styled.div`
