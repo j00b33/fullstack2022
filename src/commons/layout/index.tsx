@@ -39,6 +39,7 @@ export default function Layout(props: IProps) {
     "/log/select",
     "/log/customersignup",
     "/log/tattooistsignup",
+    "/log/updateUser",
   ];
 
   const HIDDEN_FOOTER = [

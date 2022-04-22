@@ -11,7 +11,6 @@ export const FETCH_TATTOO = gql`
       name
       price
       description
-      image
       tattooist {
         id
         name

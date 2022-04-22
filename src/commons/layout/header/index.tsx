@@ -63,6 +63,9 @@ export default function LayoutHeader() {
     router.push("/");
   };
 
+  const onClickSettings = () => {
+    router.push("/log/updateUser");
+  };
   const onClickLogin = () => {
     router.push("/log/login");
   };
@@ -80,7 +83,7 @@ export default function LayoutHeader() {
           <Text>
             <BiUser />
           </Text>
-          <Text>
+          <Text onClick={onClickSettings}>
             <RiSettings3Line />
           </Text>
         </HeaderFunction>
