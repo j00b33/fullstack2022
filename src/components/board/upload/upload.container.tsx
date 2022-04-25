@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { useState } from "react";
 import UploadPresenter from "./upload.presenter";
 
@@ -16,6 +16,8 @@ export const CREATE_TATTOO = gql`
 export default function UploadTattooContainer() {
   const [createTattoo] = useMutation(CREATE_TATTOO);
 
+  const router = useRouter();
+
   const [name, setName] = useState("");
 
   const [price, setPrice] = useState(0);
@@ -26,6 +28,7 @@ export default function UploadTattooContainer() {
   const [region, setRegion] = useState(0);
 
   const [bodypart, setBodypart] = useState(0);
+  const [size, setSize] = useState("");
   const [design, setDesign] = useState("");
   const [tags, setTags] = useState([]);
   const [method, setMethod] = useState("");
@@ -75,12 +78,13 @@ export default function UploadTattooContainer() {
     console.log(event.currentTarget.value);
   };
 
-  const onChangeGenre = (event) => {
-    setGenre(event.target.value);
+  const onChangeSize = (event) => {
+    setSize(event.target.value);
+    console.log(event.target.value);
   };
 
-  const onChangeType = (event) => {
-    setType(event.target.value);
+  const onChangeGenre = (event) => {
+    setGenre(event.target.value);
   };
 
   const onClickUpload = async () => {
@@ -98,11 +102,15 @@ export default function UploadTattooContainer() {
             tattooDesign: { name: design },
             tattooRegionId: region,
             tattooTags: tags,
+            tattooBodypart: {
+              bodypart,
+              size,
+            },
           },
         },
       });
       Modal.success({ content: "Tattoo successfully uploaded" });
-      Router.push(`/board/${result.data.createTattoo.id}`);
+      router.push(`/board/${result.data.createTattoo.id}`);
     } catch (error) {
       console.log(error.message);
     }
@@ -122,7 +130,7 @@ export default function UploadTattooContainer() {
       onChangeDesign={onChangeDesign}
       onChangeMethod={onChangeMethod}
       onChangeGenre={onChangeGenre}
-      onChangeType={onChangeType}
+      onChangeSize={onChangeSize}
     />
   );
 }

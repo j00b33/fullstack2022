@@ -41,7 +41,7 @@ export default function UploadPresenter(props) {
         <U.TwoBox>
           <U.Box>
             <U.Text>Design</U.Text>
-            <U.Input onChange={props.onchangeDesign} placeholder="flower" />
+            <U.Input onChange={props.onchangeDesign} placeholder="ex) flower" />
           </U.Box>
           <U.Box>
             <U.Text>Method</U.Text>
@@ -73,8 +73,17 @@ export default function UploadPresenter(props) {
             </U.SmallSelectionWrapper>
           </U.Box>
           <U.Box>
-            <U.Text>Type</U.Text>
-            <U.Input onChange={props.onChangeType} placeholder="plant" />
+            <U.Text>Region</U.Text>
+            <U.SmallSelectionWrapper onChange={props.onChangeRegion}>
+              <option disabled={true} selected={true}>
+                Select Your Region
+              </option>
+              <option value={1}>Seoul</option>
+              <option value={2}>Busan</option>
+              <option value={3}>Incheon</option>
+              <option value={4}>Daegu</option>
+              <option value={5}>Guangju</option>
+            </U.SmallSelectionWrapper>
           </U.Box>
         </U.TwoBox>
 
@@ -104,35 +113,31 @@ export default function UploadPresenter(props) {
           </U.Box>
         </U.TwoBox>
 
-        <U.Box>
-          <U.Text>Region</U.Text>
-          <U.SelectionWrapper onChange={props.onChangeRegion}>
-            <option disabled={true} selected={true}>
-              Select Your Region
-            </option>
-            <option value={1}>Seoul</option>
-            <option value={2}>Busan</option>
-            <option value={3}>Incheon</option>
-            <option value={4}>Daegu</option>
-            <option value={5}>Guangju</option>
-          </U.SelectionWrapper>
-        </U.Box>
+        <U.TwoBox>
+          <U.Box>
+            <U.Text>Body Part</U.Text>
+            <U.SmallSelectionWrapper onChange={props.onChangeBodypart}>
+              <option disabled={true} selected={true}>
+                Select the body part
+              </option>
+              <option value={1}>Hand</option>
+              <option value={2}>Arm</option>
+              <option value={3}>Back</option>
+              <option value={4}>Leg</option>
+              <option value={5}>Thigh</option>
+              <option value={6}>Neck</option>
+              <option value={7}>Head</option>
+            </U.SmallSelectionWrapper>
+          </U.Box>
 
-        <U.Box>
-          <U.Text>Body Part</U.Text>
-          <U.SelectionWrapper onChange={props.onChangeBodypart}>
-            <option disabled={true} selected={true}>
-              Select the body part
-            </option>
-            <option value={1}>Hand</option>
-            <option value={2}>Arm</option>
-            <option value={3}>Back</option>
-            <option value={4}>Leg</option>
-            <option value={5}>Thigh</option>
-            <option value={6}>Neck</option>
-            <option value={7}>Head</option>
-          </U.SelectionWrapper>
-        </U.Box>
+          <U.Box>
+            <U.Text>Size</U.Text>
+            <U.Input
+              onChange={props.onChangeSize}
+              placeholder="enter the size"
+            />
+          </U.Box>
+        </U.TwoBox>
 
         <U.UploadButton onClick={props.onClickUpload}>Upload</U.UploadButton>
       </U.Body>
