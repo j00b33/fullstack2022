@@ -50,7 +50,7 @@ export const UserInfo = styled.div`
 
   height: 100px;
 
-  width: 180px;
+  width: 330px;
 `;
 
 export const Image = styled.img`

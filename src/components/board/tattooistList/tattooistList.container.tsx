@@ -7,7 +7,7 @@ export const FETCH_TATTOOISTS = gql`
     fetchTattooists {
       id
       name
-      userImage
+      # userImage
       email
       userDetail
     }
@@ -34,7 +34,12 @@ export default function TattooistListContainer() {
       <T.Body>
         {data?.fetchTattooists.map((el) => (
           <T.SingleBox key={el.id} id={el.id}>
-            <T.Image src={el.userImage ? el.userImage : "/emptyUser.png"} />
+            <T.Image
+              src={
+                // el?.userImage ? el.userImage : "/defaulttattooist.png"}
+                "/defaulttattooist.png"
+              }
+            />
             <T.UserInfo>
               <T.Text>Tattooist ID: {el.id}</T.Text>
               <T.Text> Tattooist: {el.name} </T.Text>
