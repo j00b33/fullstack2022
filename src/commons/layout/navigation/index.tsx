@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +15,9 @@ const Menu = styled.div`
   justify-content: space-between;
 
   width: 400px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 `;
+
 const ContentText = styled.div`
   font-size: 18px;
   font-family: Cochin;
@@ -35,7 +35,6 @@ const ContentText = styled.div`
 export const HeaderDivision = styled.div`
   border: 2px solid #64748b;
   width: 100%;
-  margin-bottom: 5px;
 `;
 
 export default function LayoutNavigation() {

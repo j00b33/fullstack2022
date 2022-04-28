@@ -38,6 +38,15 @@ export const FETCH_TATTOO = gql`
   }
 `;
 
+export const FETCH_IMAGE = gql`
+  query fetchImage($tattooId: String) {
+    fetchImage(tattooId: $tattooID) {
+      id
+      image
+    }
+  }
+`;
+
 export const CREATE_RECEIPT = gql`
   mutation createReceipt($impUid: String!, $price: Float!, $tattooId: String!) {
     createReceipt(impUid: $impUid, price: $price, tattooId: $tattooId) {
@@ -100,6 +109,8 @@ export default function TattooDetailContainer() {
       }
     );
   };
+
+  const { data: imageData } = useQuery(FETCH_IMAGE);
 
   return (
     <D.Wrapper>

@@ -1,6 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { createContext, useEffect, useState } from "react";
 import Layout from "../src/commons/layout";
+import "antd/dist/antd.css";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalstyles";
 import "../styles/globals.css";

@@ -88,3 +88,8 @@ export const TattooistImage = styled.img`
   box-shadow: 15px 15px 0px 0px;
   margin-bottom: 20px;
 `;
+
+export const SliderImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
