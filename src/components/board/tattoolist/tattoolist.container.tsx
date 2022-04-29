@@ -14,6 +14,7 @@ export const FETCH_TATTOOS = gql`
       tattooTags {
         tag
       }
+      date
     }
   }
 `;
@@ -42,8 +43,13 @@ export default function TattooListContainer() {
         {data?.fetchTattoos.map((el) => (
           <T.SingleBox key={el.id} id={el.id} onClick={onClickDetail}>
             <T.Image src="/empty.png" />
-            <T.Text> {el.name} </T.Text>
-            <T.Text> {el.price}₩ </T.Text>
+            <T.contents>
+              <T.Text> {el.name} </T.Text>
+              <T.Text> {el.price}₩ </T.Text>
+              <T.date>{el.date}</T.date>
+            </T.contents>
+
+            <T.InnerDivision />
             <T.Tags>
               <T.Tag>{el.tattooGenre.genre} </T.Tag>
               <T.Tag>#{el.tattooTags[0].tag}</T.Tag>

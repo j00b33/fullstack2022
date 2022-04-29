@@ -3,6 +3,7 @@ import * as R from "./uploadTattooistReview.styles";
 import { Rate } from "antd";
 import { AiOutlineStar } from "react-icons/ai";
 import { gql, useMutation } from "@apollo/client";
+import Router from "next/router";
 
 export const CREATE_TATTOOIST_REVIEW = gql`
   mutation createTattooistReview(
@@ -29,10 +30,6 @@ export default function UploadTattooistReviewContainer() {
   const [reviewDetail, setReviewDetail] = useState("");
   const [reviewImage, setReviewImage] = useState("");
 
-  const onChangeRate = (event) => {
-    setRating(event.target.value);
-  };
-
   const onChangeTattooist = (event) => {
     setTattooist(event.target.value);
   };
@@ -43,6 +40,11 @@ export default function UploadTattooistReviewContainer() {
 
   const onChangeReviewImage = (event) => {
     setReviewImage(event.target.value);
+  };
+
+  const onChangeRate = (value) => {
+    setRating(value);
+    console.log("🎀", value);
   };
 
   console.log(
@@ -66,6 +68,8 @@ export default function UploadTattooistReviewContainer() {
         },
       },
     });
+
+    Router.push("/board/tattooistReviewList");
   };
 
   return (
@@ -82,8 +86,7 @@ export default function UploadTattooistReviewContainer() {
 
         <R.Box>
           <R.Text>Rating</R.Text>
-          {/* <Rate character={<AiOutlineStar />} /> */}
-          <R.Rate onChange={onChangeRate} />
+          <Rate onChange={onChangeRate} />
         </R.Box>
 
         <R.Box>

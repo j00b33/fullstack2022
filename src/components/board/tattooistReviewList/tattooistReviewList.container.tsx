@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { Rate } from "antd";
 import { useRouter } from "next/router";
 import * as R from "./tattooistReviewList.styles";
 
@@ -26,6 +27,10 @@ export default function TattooistReviewListcontainer() {
   const { data } = useQuery(FETCH_TATTOOIST_REVIEW);
   console.log("👠 Review Data: ", data);
 
+  const onClickReviewDetail = () => {
+    router.push("/");
+  };
+
   return (
     <R.Wrapper>
       <R.Title>Tattoo Review</R.Title>
@@ -33,9 +38,18 @@ export default function TattooistReviewListcontainer() {
         {data?.fetchTattooistReviews.map((el) => (
           <R.SingleBox key={el.id} id={el.id}>
             <R.Image src={el?.reviewImage ? el.reviewImage : "/empty.png"} />
-            <R.Text>Tattooist {el.tattooist?.name} </R.Text>
-            <R.Text></R.Text>
-            <R.Text>{el.rating} stars</R.Text>
+            <R.Context>
+              <R.Text>Tattooist {el.tattooist?.name} </R.Text>
+              <R.InnerDivision />
+              <R.Detail onClick={onClickReviewDetail}>
+                {el.reviewDetail.length > 10
+                  ? `${el.reviewDetail.slice(0, 11)}...더보기`
+                  : el.reviewDetail}
+              </R.Detail>
+              <R.Text>
+                <Rate disabled defaultValue={el?.rating} />
+              </R.Text>
+            </R.Context>
           </R.SingleBox>
         ))}
       </R.Body>

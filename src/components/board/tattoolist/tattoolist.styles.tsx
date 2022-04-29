@@ -30,12 +30,12 @@ export const SingleBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-
-  width: 240px;
-  height: 320px;
+  justify-content: space-between;
 
   border: 1px solid grey;
+
+  width: 240px;
+  height: 370px;
 
   margin-bottom: 50px;
 
@@ -43,9 +43,19 @@ export const SingleBox = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 200px;
+  width: 238px;
   height: 200px;
   object-fit: cover;
+`;
+
+export const contents = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 200px;
+  height: 90px;
 `;
 
 export const Text = styled.div`
@@ -53,11 +63,18 @@ export const Text = styled.div`
   font-family: Cochin;
 `;
 
+export const date = styled.div`
+  font-size: 12px;
+  color: grey;
+`;
+
 export const Tags = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 200px;
+
+  margin-bottom: 10px;
 `;
 
 export const Tag = styled.div`
@@ -75,6 +92,13 @@ export const Tag = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+`;
+
+export const InnerDivision = styled.div`
+  width: 240px;
+  border: 0.4px solid grey;
+
+  margin-top: 10px;
 `;
 
 export const Upload = styled.div`

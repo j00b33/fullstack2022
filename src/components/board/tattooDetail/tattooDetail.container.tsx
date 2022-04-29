@@ -15,9 +15,6 @@ export const FETCH_TATTOO = gql`
         id
         name
       }
-      # tattooDesign {
-      #   name
-      # }
       tattooTags {
         tag
       }
@@ -41,7 +38,6 @@ export const FETCH_TATTOO = gql`
 export const FETCH_IMAGE = gql`
   query fetchImage($tattooId: String) {
     fetchImage(tattooId: $tattooID) {
-      id
       image
     }
   }
@@ -69,11 +65,18 @@ export const FETCH_USER = gql`
 
 export default function TattooDetailContainer() {
   const router = useRouter();
+
   const { data } = useQuery(FETCH_TATTOO, {
     variables: { tattooId: String(router.query.tattooDetail) },
   });
 
   const info = data?.fetchTattoo;
+
+  const { data: imageData } = useQuery(FETCH_IMAGE, {
+    variables: {
+      tattooId: String(router.query.tattooDetail),
+    },
+  });
 
   const { data: userData } = useQuery(FETCH_USER);
 
@@ -96,7 +99,6 @@ export default function TattooDetailContainer() {
         buyer_postcode: "00000",
       },
       async (rsp) => {
-        // callback
         if (rsp.success) {
           await createReceipt({
             variables: {
@@ -109,8 +111,6 @@ export default function TattooDetailContainer() {
       }
     );
   };
-
-  const { data: imageData } = useQuery(FETCH_IMAGE);
 
   return (
     <D.Wrapper>
@@ -125,7 +125,7 @@ export default function TattooDetailContainer() {
         ></script>
       </Head>
       <D.MainWrapper>
-        <D.Image src="/empty.png" />
+        <D.Image src={imageData?.image ? imageData.image : "/empty.png"} />
         <D.Context>
           <D.ContextHeader>
             <D.Title>{info?.name}</D.Title>

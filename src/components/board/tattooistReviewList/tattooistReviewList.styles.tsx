@@ -29,7 +29,7 @@ export const SingleBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 
   width: 240px;
   height: 320px;
@@ -39,8 +39,24 @@ export const SingleBox = styled.div`
   margin-bottom: 50px;
 `;
 
-export const Image = styled.img`
+export const Context = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 10px;
   width: 200px;
+  height: 100px;
+`;
+
+export const InnerDivision = styled.div`
+  width: 200px;
+  border: 0.4px solid grey;
+`;
+
+export const Image = styled.img`
+  width: 238px;
   height: 200px;
   object-fit: cover;
 `;
@@ -48,6 +64,14 @@ export const Image = styled.img`
 export const Text = styled.div`
   font-size: 15px;
   font-family: Cochin;
+`;
+
+export const Detail = styled.div`
+  cursor: pointer;
+  :hover {
+    color: #64748b;
+  }
+  transition: 0.4s;
 `;
 
 export const Tags = styled.div`
