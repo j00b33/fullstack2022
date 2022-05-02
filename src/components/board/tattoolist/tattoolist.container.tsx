@@ -42,7 +42,7 @@ export default function TattooListContainer() {
       <T.Body>
         {data?.fetchTattoos.map((el) => (
           <T.SingleBox key={el.id} id={el.id} onClick={onClickDetail}>
-            <T.Image src="/empty.png" />
+            <T.Image src="/cotton.png" />
             <T.contents>
               <T.Text> {el.name} </T.Text>
               <T.Text> {el.price}₩ </T.Text>

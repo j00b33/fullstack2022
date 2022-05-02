@@ -35,7 +35,7 @@ export const SingleBox = styled.div`
   border: 1px solid grey;
 
   width: 240px;
-  height: 370px;
+  height: 400px;
 
   margin-bottom: 50px;
 
@@ -44,7 +44,7 @@ export const SingleBox = styled.div`
 
 export const Image = styled.img`
   width: 238px;
-  height: 200px;
+  height: 238px;
   object-fit: cover;
 `;
 

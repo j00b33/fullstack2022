@@ -38,6 +38,7 @@ export const FETCH_TATTOO = gql`
 export const FETCH_IMAGE = gql`
   query fetchImage($tattooId: String) {
     fetchImage(tattooId: $tattooID) {
+      id
       image
     }
   }
@@ -77,6 +78,8 @@ export default function TattooDetailContainer() {
       tattooId: String(router.query.tattooDetail),
     },
   });
+
+  console.log(imageData, "🐚 ");
 
   const { data: userData } = useQuery(FETCH_USER);
 
@@ -125,7 +128,7 @@ export default function TattooDetailContainer() {
         ></script>
       </Head>
       <D.MainWrapper>
-        <D.Image src={imageData?.image ? imageData.image : "/empty.png"} />
+        <D.Image src={imageData?.image ? imageData.image : "/cotton.png"} />
         <D.Context>
           <D.ContextHeader>
             <D.Title>{info?.name}</D.Title>
