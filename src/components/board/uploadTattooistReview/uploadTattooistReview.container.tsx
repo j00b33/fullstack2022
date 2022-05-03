@@ -56,6 +56,11 @@ export default function UploadTattooistReviewContainer() {
   );
 
   const onClickUpload = async () => {
+    if (tattooist === "" || reviewDetail === "" || reviewImage === "") {
+      alert("Check the blanks");
+      return;
+    }
+
     alert("Successfully Uploaded");
 
     await createTattooistReview({
@@ -75,35 +80,47 @@ export default function UploadTattooistReviewContainer() {
   return (
     <R.Wrapper>
       <R.Title>Upload Tattooist Review</R.Title>
+      <R.DivisionLine />
+
       <R.BodyWrapper>
-        <R.Box>
-          <R.Text>Tattooist</R.Text>
-          <R.Input
-            placeholder="Enter the tattooist name"
-            onChange={onChangeTattooist}
-          />
-        </R.Box>
+        <R.ImageWrapper>
+          <R.ReviewImage src="/cotton.png" />
+        </R.ImageWrapper>
+        <R.MainWrapper>
+          <R.Box>
+            <R.Text>Rating</R.Text>
+            <Rate onChange={onChangeRate} />
+          </R.Box>
 
-        <R.Box>
-          <R.Text>Rating</R.Text>
-          <Rate onChange={onChangeRate} />
-        </R.Box>
+          <R.Box>
+            <R.Text>Tattooist</R.Text>
+            <R.Input
+              placeholder="Enter the tattooist name"
+              onChange={onChangeTattooist}
+            />
+          </R.Box>
 
-        <R.Box>
-          <R.Text>Content</R.Text>
-          <R.Input
-            onChange={onChangeReviewDetail}
-            placeholder="Enter details about your review"
-          />
-        </R.Box>
+          <R.Box>
+            <R.Text>Tattoo</R.Text>
+            <R.Input placeholder="Enter the tattoo you got from this tattooist" />
+          </R.Box>
 
-        <R.Box>
-          <R.Text>Tattoo Image</R.Text>
-          <R.Input
-            onChange={onChangeReviewImage}
-            placeholder="Enter review image address"
-          />
-        </R.Box>
+          <R.Box>
+            <R.Text>Content</R.Text>
+            <R.Input
+              onChange={onChangeReviewDetail}
+              placeholder="Enter details about your review"
+            />
+          </R.Box>
+
+          <R.Box>
+            <R.Text>Image</R.Text>
+            <R.Input
+              onChange={onChangeReviewImage}
+              placeholder="Enter review image address"
+            />
+          </R.Box>
+        </R.MainWrapper>
       </R.BodyWrapper>
 
       <R.UploadButton onClick={onClickUpload}>Upload</R.UploadButton>

@@ -12,18 +12,50 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 39px;
   font-family: Cochin;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 820px;
 `;
 
-export const RatingWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+export const DivisionLine = styled.div`
+  border: 1px solid grey;
+  width: 900px;
 `;
 
 export const BodyWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 860px;
+
+  margin-bottom: 30px;
+`;
+
+export const ImageWrapper = styled.div`
+  display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+
+  width: 500px;
+`;
+
+export const ReviewImage = styled.img`
+  width: 300px;
+  height: 300px;
+`;
+
+export const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 30px;
   margin-bottom: 50px;
 `;
 
@@ -33,6 +65,12 @@ export const Box = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+`;
+
+export const RatingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 export const Text = styled.div`
@@ -56,8 +94,8 @@ export const Input = styled.input`
 
 export const UploadButton = styled.div`
   cursor: pointer;
-  width: 100px;
-  height: 30px;
+  width: 600px;
+  height: 50px;
 
   font-size: 15px;
   font-family: Cochin;
