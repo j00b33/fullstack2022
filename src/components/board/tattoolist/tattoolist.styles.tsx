@@ -9,10 +9,71 @@ export const Wrapper = styled.div`
   margin-bottom: 100px;
 `;
 
+export const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 1200px;
+`;
+
+export const GenreList = styled.div`
+  width: 200px;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-right: 80px;
+
+  /* position: fixed; */
+
+  background-color: #64748b;
+  opacity: 0.7;
+`;
+
+export const GenreTitle = styled.div`
+  font-weight: 600;
+  font-size: 17px;
+
+  margin-top: 18px;
+  margin-bottom: 7px;
+  color: white;
+`;
+
+export const GenreDivision = styled.div`
+  width: 170px;
+  border: 0.4px solid white;
+
+  margin-bottom: 20px;
+`;
+
+export const Genres = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #d0d0d0;
+
+  height: 400px;
+`;
+
+export const Genre = styled.div`
+  font-size: 15px;
+  cursor: pointer;
+
+  :hover {
+    color: white;
+  }
+`;
+
 export const Title = styled.div`
   font-size: 30px;
   font-family: Cochin;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+
+  cursor: pointer;
 `;
 
 export const Body = styled.div`
@@ -96,14 +157,14 @@ export const Tag = styled.div`
 
 export const InnerDivision = styled.div`
   width: 240px;
-  border: 0.4px solid grey;
+
+  border: 0.5px solid #bebebe;
 
   margin-top: 10px;
 `;
 
 export const Upload = styled.div`
   cursor: pointer;
-  border: 2px solid black;
 
   width: 200px;
   height: 40px;
@@ -116,9 +177,10 @@ export const Upload = styled.div`
   justify-content: center;
   align-items: center;
 
+  margin-bottom: 50px;
+
   :hover {
-    color: white;
-    background-color: #64748b;
+    color: #64748b;
   }
 
   transition: 0.4s;

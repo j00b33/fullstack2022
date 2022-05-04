@@ -53,7 +53,7 @@ export default function TattooistListContainer() {
             <T.Image
               src={
                 // el?.userImage ? el.userImage : "/defaulttattooist.png"}
-                "/profilepic/original.png"
+                "/profilepic/black.png"
               }
             />
             <T.UserInfo>
